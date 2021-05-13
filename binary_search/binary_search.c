@@ -12,7 +12,7 @@ int	*input_array(int n)
 	printf("input array with space\n");
 	while (i < n)
 	{
-		scanf("%d ", &arr[i]);
+		scanf(" %d", &arr[i]);
 		i++;
 	}
 	return (arr);
@@ -41,10 +41,10 @@ int main(int argc, char **argv)
 	int	n;
 
 	printf("input array size : ");
-	scanf("%d\n", &n);
+	scanf("%d", &n);
 	arr = input_array(n);
 	printf("target : ");
-	scanf("%d\n", &target);
-	binary_search(arr, 0, n - 1, target);
+	scanf("%d", &target);
+	printf("%d\n", binary_search(arr, 0, n - 1, target));
 	free(arr);
 }
