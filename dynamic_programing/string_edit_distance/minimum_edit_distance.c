@@ -11,14 +11,13 @@ int		min(int x, int y)
 int		recur_solve(char *x, char *y, int	n, int	m, int *e)
 {
 	int	ret;
-
-	if (e[n * strlen(y) + m] != -1)
-		return (e[n * strlen(y) + m]);
+	if (e[n * ((int)strlen(y) + 1) + m] != -1)
+		return (e[n * ((int)strlen(y) + 1) + m]);
 	else
 	{
 		ret = min(min(recur_solve(x, y, n - 1, m, e) + 1, recur_solve(x, y, n, m - 1, e) + 2),
 			recur_solve(x, y, n - 1, m - 1, e) + 3 * (x[n - 1] != y[m - 1]));
-		e[n * strlen(y) + m] = ret;
+		e[n * ((int)strlen(y) + 1) + m] = ret;
 		return (ret);
 	}
 }
@@ -32,7 +31,7 @@ int	solve(char *x, char *y, int	len_x, int	len_y)
 		for (int j = 0; j < len_y + 1; j++)
 			e[i][j] = -1;
 	}
-	e[0][0] = 0;b 
+	e[0][0] = 0;
 	for (int	i = 1; i < len_x + 1; i++)
 		e[i][0] = 1 * i;
 	for (int	i = 1; i < len_y + 1; i++)
